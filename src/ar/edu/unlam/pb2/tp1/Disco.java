@@ -15,14 +15,15 @@ public class Disco {
 	private Double perimetroExterior;
 	private Double superficie; 
 	
-	public Disco(Double radioInterior, Double radioExterior, 
-			Double perimetroInterior, Double perimetroExterio, Double superficie){
+	public Disco(Double radioInterior, Double radioExterior){
 		this.radioInterior = radioInterior;
 		this.radioExterior = radioExterior;
 		this.perimetroInterior = perimetroInterior;
 		this.perimetroExterior = perimetroExterior;
 		this.superficie = superficie;
-		//superficie=(Math.PI * (radioExterior^2 - radioInterior^2));
+		// perimetroInterior = 2*Math.Pi*radioInterior;
+		// perimetroExterior = 2*Math.Pi*radioExterior;
+		// superficie = (Math.PI * (radioExterior^2 - radioInterior^2));
 	}
 
 	public Double getRadioInterior() {
@@ -58,7 +59,6 @@ public class Disco {
 	}
 
 	public Double getSuperficie() {
-		//superficie=(Math.PI * (radioExterior^2 - radioInterior^2));
 		return superficie;
 	}
 
@@ -66,5 +66,19 @@ public class Disco {
 		this.superficie = superficie;
 	}
 	
+	public Double perimetroInterior() {
+		this.perimetroInterior = 2*Math.PI*this.radioInterior;
+		return this.perimetroInterior;
+	}
+	
+	public Double perimetroExterior() {
+		this.perimetroExterior = 2*Math.PI*this.radioExterior;
+		return this.perimetroExterior;
+	}
+	
+	public Double superficie() {
+		this.superficie = Math.PI*(this.radioExterior*2 - this.radioInterior*2);
+		return this.superficie;
+	}
 	
 }
